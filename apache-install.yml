@@ -1,6 +1,7 @@
 ---
 - name: This sets up an httpd webserver
   hosts: "{{ hosts_inventory }}"
+  become: yes
   tasks:
   - name: Install apache packages
     yum:
