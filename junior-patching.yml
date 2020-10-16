@@ -20,7 +20,7 @@
         state={{ yum_state }}
 #        disablerepo={{ yum_disablerepo }}
 #        enablerepo={{ yum_enablerepo }}
-        exclude={{ yum_exclude }}
+#        exclude={{ yum_exclude }}
       become: "yes"
       register: yumcommandout
       when:
