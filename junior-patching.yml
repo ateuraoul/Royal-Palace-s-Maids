@@ -4,13 +4,13 @@
   vars:
     yum_name: "*"
     yum_state:  latest
-    yum_enablerepo: "rhel-?-server-rpms,rhel-?-server-satellite-tools-6.?-rpms"
-    yum_disablerepo: "*"
+#    yum_enablerepo: "rhel-?-server-rpms,rhel-?-server-satellite-tools-6.?-rpms"
+#    yum_disablerepo: "*"
     yum_exclude: ""
     dnf_name: "*"
     dnf_state: latest
-    dnf_enablerepo: "rhel-8-for-x86_64-appstream-rpms,rhel-8-for-x86_64-baseos-rpms,satellite-tools-6.?-for-rhel-8-x86_64-rpms"
-    dnf_disablerepo: "*"
+#    dnf_enablerepo: "rhel-8-for-x86_64-appstream-rpms,rhel-8-for-x86_64-baseos-rpms,satellite-tools-6.?-for-rhel-8-x86_64-rpms"
+#    dnf_disablerepo: "*"
     dnf_exclude: ""
   tasks:
 
@@ -18,8 +18,8 @@
       yum:
         name={{ yum_name }}
         state={{ yum_state }}
-        disablerepo={{ yum_disablerepo }}
-        enablerepo={{ yum_enablerepo }}
+#        disablerepo={{ yum_disablerepo }}
+#        enablerepo={{ yum_enablerepo }}
         exclude={{ yum_exclude }}
       become: "yes"
       register: yumcommandout
@@ -36,8 +36,8 @@
       dnf:
         name={{ dnf_name }}
         state={{ dnf_state }}
-        disablerepo={{ dnf_disablerepo }}
-        enablerepo={{ dnf_enablerepo }}
+#        disablerepo={{ dnf_disablerepo }}
+#        enablerepo={{ dnf_enablerepo }}
         exclude={{ dnf_exclude }}
       become: "yes"
       register: dnfcommandout
