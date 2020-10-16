@@ -1,8 +1,9 @@
 ---
 - name: Patch and reboot servers
   hosts: "{{ hosts_inventory }}"
+  become: yes
   vars:
-    yum_name: "*"
+  yum_name:  "*"
     yum_state:  latest
 #    yum_enablerepo: "rhel-?-server-rpms,rhel-?-server-satellite-tools-6.?-rpms"
 #    yum_disablerepo: "*"
@@ -16,11 +17,11 @@
 
     - name: upgrade packages via yum
       yum:
-        name={{ yum_name }}
-        state={{ yum_state }}
+        name: "{{ yum_name }}"
+        state: "{{ yum_state }}"
 #        disablerepo={{ yum_disablerepo }}
 #        enablerepo={{ yum_enablerepo }}
-#        exclude={{ yum_exclude }}
+        exclude: "{{ yum_exclude }}"
       become: "yes"
       register: yumcommandout
       when:
@@ -34,11 +35,11 @@
 
     - name: upgrade packages via dnf
       dnf:
-        name={{ dnf_name }}
-        state={{ dnf_state }}
+        name: "{{ dnf_name }}"
+        state: "{{ dnf_state }}"
 #        disablerepo={{ dnf_disablerepo }}
 #        enablerepo={{ dnf_enablerepo }}
-        exclude={{ dnf_exclude }}
+        exclude: "{{ dnf_exclude }}"
       become: "yes"
       register: dnfcommandout
       when:
