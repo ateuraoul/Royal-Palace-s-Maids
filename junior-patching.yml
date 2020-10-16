@@ -4,7 +4,7 @@
   become: yes
   vars:
   yum_name:  "*"
-    yum_state:  latest
+    yum_state: latest
 #    yum_enablerepo: "rhel-?-server-rpms,rhel-?-server-satellite-tools-6.?-rpms"
 #    yum_disablerepo: "*"
     yum_exclude: ""
